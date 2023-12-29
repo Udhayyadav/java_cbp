@@ -7,12 +7,13 @@ import java.util.*;;
  */
 
  class  Song{
-
+    int id;
     String name;
     Double duration;
 
-    public Song(String name,Double duration)
+    public Song(int id,String name,Double duration)
     {
+        this.id=id;
         this.name=name;
         this.duration=duration;
 
@@ -20,8 +21,9 @@ import java.util.*;;
 
     void print()
     {
-        System.out.println("name :"+this.name);
-        System.out.println("time :"+this.duration);
+        System.out.println("Id :"+this.id);
+        System.out.println("Name :"+this.name);
+        System.out.println("Duration :"+this.duration);
     }
 
     
@@ -39,11 +41,11 @@ public class playlist_main {
         int choice;
         LinkedList<String> Song = new LinkedList<String>();
    
-        Song s1 = new Song("mimmi",4.15);
+        Song s1 = new Song(1,"mimmi",4.15);
 
 
         songs.add(s1);
-        Song s2 = new Song("baarat",4.15);
+        Song s2 = new Song(2,"baarat",4.15);
 
 
         songs.add(s2);
@@ -65,6 +67,8 @@ public class playlist_main {
             System.out.println("1)play next song ");
             System.out.println("2)enter previous song ");
             System.out.println("3)Show all Songs ");
+            System.out.println("4)Add song to favorite");
+            System.out.println("5)show favorite songs");
 
             choice = sc.nextInt();
 
@@ -86,6 +90,19 @@ public class playlist_main {
                      {
                        it.print();
                     }
+                }
+
+                case 4:
+                {
+                    System.out.println("Enter song id to add into fav");
+                    int songId=sc.nextInt();
+                    Favorites_song.addfavorate(songId);
+                    break;
+                }
+
+                case 5:
+                {
+                    Favorites_song.printfavorite();
                 }
             }
 
