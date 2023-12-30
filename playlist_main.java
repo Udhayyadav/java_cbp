@@ -9,12 +9,14 @@ import java.util.*;;
  class  Song{
     int id;
     String name;
+    String artist;
     Double duration;
 
-    public Song(int id,String name,Double duration)
+    public Song(int id,String name,String artist,Double duration)
     {
         this.id=id;
         this.name=name;
+        this.artist=artist;
         this.duration=duration;
 
     }
@@ -23,6 +25,7 @@ import java.util.*;;
     {
         System.out.println("Id :"+this.id);
         System.out.println("Name :"+this.name);
+        System.out.println("Artist :"+this.artist);
         System.out.println("Duration :"+this.duration);
     }
 
@@ -39,17 +42,25 @@ public class playlist_main {
         Scanner sc=new Scanner(System.in);
 
         int choice;
-        LinkedList<String> Song = new LinkedList<String>();
+       // LinkedList<String> Song = new LinkedList<String>();
    
-        Song s1 = new Song(1,"mimmi",4.15);
-
-
+        Song s1 = new Song(1,"mimmi","Ritviz",4.15);
         songs.add(s1);
-        Song s2 = new Song(2,"baarat",4.15);
 
-
+        Song s2 = new Song(2,"baarat","Ritviz",4.15);
         songs.add(s2);
 
+        Song s3 = new Song(3,"Not Ramaiya Vastavaiya","Anirudh",3.22);
+        songs.add(s3);
+
+        Song s4 = new Song(4,"Kalyana vayasu","Anirudh",4.02);
+        songs.add(s4);
+
+        Song s5 = new Song(5,"Mansuke","AR Rahman",5.12);
+        songs.add(s5);
+
+        Song s6 = new Song(6,"Maaro maaro","AR Rahman",5.42);
+        songs.add(s6);
         Song_iterator play=new Song_iterator();
 
 
@@ -69,6 +80,7 @@ public class playlist_main {
             System.out.println("3)Show all Songs ");
             System.out.println("4)Add song to favorite");
             System.out.println("5)show favorite songs");
+            System.out.println("6)List songs by artist");
 
             choice = sc.nextInt();
 
@@ -90,6 +102,7 @@ public class playlist_main {
                      {
                        it.print();
                     }
+                    break;
                 }
 
                 case 4:
@@ -103,6 +116,13 @@ public class playlist_main {
                 case 5:
                 {
                     Favorites_song.printfavorite();
+                    break;
+                }
+
+                case 6:
+                {
+                    Artist_songs.artist_list();
+                    break;
                 }
             }
 
