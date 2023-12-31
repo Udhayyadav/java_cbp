@@ -71,6 +71,9 @@ public class playlist_main {
         // System.out.println("duration:" + songs.get(0).duration);
         // songs.get(0).print();
 
+        System.out.println("Now playing");
+
+        s1.print();
 
         do{
 
@@ -80,19 +83,21 @@ public class playlist_main {
             System.out.println("3)Show all Songs ");
             System.out.println("4)Add song to favorite");
             System.out.println("5)show favorite songs");
-            System.out.println("6)List songs by artist");
+            System.out.println("6)Remove from fav ");
+            System.out.println("7)List songs by artist");
 
             choice = sc.nextInt();
 
             switch (choice)
             {
                 case 1:{
-                    
+                   // System.out.println("Now playing");
                      play.nextsong();
                      break;
                 }
                 case 2:
                 {
+                   // System.out.println("Now playing");
                     play.previoussong();
                     break;
                 }
@@ -116,14 +121,24 @@ public class playlist_main {
                 case 5:
                 {
                     Favorites_song.printfavorite();
+
+                    break;
+                }
+                case 6:
+                {
+                    System.out.println("Enter song id to remove from fav");
+                    int songId=sc.nextInt();
+                    Favorites_song.deleteFromFavorite(songId);
                     break;
                 }
 
-                case 6:
+                case 7:
                 {
                     Artist_songs.artist_list();
                     break;
                 }
+
+
             }
 
         }while(choice!=-1);
