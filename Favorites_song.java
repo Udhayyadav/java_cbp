@@ -40,4 +40,18 @@ public class Favorites_song {
         }
    }
 
+   public static void deleteFromFavorite(int id){
+    for(Song song:favoriteSongs)
+    {   
+        if(song.id==id)
+        {  
+            favoriteSongs.remove(song);
+            System.out.println("Song is Successfully removed.");
+            return;
+        }  
+    
+    }
+    System.out.println("Id is not found.");
+
+   }
 }
